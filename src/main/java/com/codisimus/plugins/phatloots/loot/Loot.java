@@ -90,7 +90,7 @@ public abstract class Loot implements Comparable, ConfigurationSerializable {
      * @return true if the loot should be looted
      */
     public boolean rollForLoot(double lootingBonus) {
-        return roll() < (probability + lootingBonus);
+        return roll() < (probability * (1 + lootingBonus / 100));
     }
 
     /**
