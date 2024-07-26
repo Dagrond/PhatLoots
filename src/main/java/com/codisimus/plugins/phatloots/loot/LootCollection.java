@@ -146,7 +146,7 @@ public class LootCollection extends Loot {
                     }
                     //Roll a number between 0 and total and then subtract the looting bonus
                     //We subtract because a lower roll is better in this case
-                    double roll = PhatLootsUtil.rollForDouble(total) - lootingBonus;
+                    double roll = PhatLootsUtil.rollForDouble(total) - (1 + lootingBonus / 100);
                     for (Loot loot : lootList) {
                         //Subtract the probability of each Loot from the roll until we drop below 0
                         roll -= loot.getProbability();

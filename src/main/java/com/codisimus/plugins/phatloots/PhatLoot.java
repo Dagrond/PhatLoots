@@ -360,7 +360,7 @@ public final class PhatLoot implements ConfigurationSerializable {
                 EconomyResponse r = PhatLoots.econ.depositPlayer(player, money);
                 if (r.transactionSuccess() && PhatLootsConfig.moneyLooted != null) {
                     String amount = PhatLoots.econ.format(money).replace(".00", "");
-                    player.sendMessage(PhatLootsConfig.moneyLooted.replace("<amount>", amount));
+                    player.sendMessage(PhatLootsConfig.moneyLooted.replace("<amount>", amount).replace("<bonus>", Integer.toString((int) Math.round(preEvent.getLootingBonus()))));
                 }
             } else {
                 player.sendMessage("§6Vault §4is not enabled, so no money can be processed.");
